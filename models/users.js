@@ -15,7 +15,7 @@ export async function getUser(id) {
 export async function setUser(user) {
 	if (!db) throw new Error('DB not found')
 	if (!user) throw new Error('No user provided')
-	const docRef = db.collection('users').doc(user.id)
+	const docRef = db.collection('users').doc(user.uid)
 	const result = await docRef.set(user)
 	return !!result
 }
