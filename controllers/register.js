@@ -3,7 +3,8 @@ import { setUser } from '../models/users.js'
 
 export async function register(req, res) {
 	try {
-		const decodedToken = await getAuth().verifyIdToken(req.query.idToken)
+		const token = req.headers.authorization ;
+		const decodedToken = await getAuth().verifyIdToken(token)
 		const email = decodedToken.email
 		const uid = decodedToken.uid
 		const { name, institute } = req.body

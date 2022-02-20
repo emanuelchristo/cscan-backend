@@ -1,3 +1,6 @@
 node_modules
 serviceAccountKey.js
 .env
+
+# Lock files
+*.lock

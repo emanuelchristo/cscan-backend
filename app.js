@@ -20,6 +20,9 @@ global.db = db // Adding db to global context
 import { register } from './controllers/register.js'
 import { getUsers } from './controllers/admin.js'
 
+// User Controllers
+import { getuser } from './controllers/user.js'
+
 // Middlewares
 import { validateRegister } from './middlewares/validate-register.js'
 import { adminAuth } from './middlewares/admin-auth.js'
@@ -41,6 +44,12 @@ admin.use(adminAuth)
 admin.get('/users', getUsers)
 
 app.use('/admin', admin)
+
+// User Router
+const user = express.Router()
+user.get('', getuser)
+
+app.use('/user', user)
 
 // Starting server
 app.listen(PORT, () => console.log(`Listening on port ${PORT}...`))

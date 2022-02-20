@@ -6,7 +6,6 @@ export const registerSchema = yup.object().shape({
 		.matches(/^[^*|\":<>[\]{}`\\()';@&$]+$/, "Can't have special characters in the name.")
 		.required('Name is required.')
 		.typeError('Name is required.'),
-	email: yup.string().email('Invalid email').required('An Email ID is required').typeError('An Email ID is required'),
 	institute: yup
 		.string()
 		.min(1, 'Must be at least 1 character long')
